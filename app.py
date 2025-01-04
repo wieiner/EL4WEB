@@ -1,18 +1,27 @@
 from flask import Flask, request, jsonify
-import os
 
 app = Flask(__name__)
 
-# Путь к файлу, где будут сохраняться данные
-file_path = "client_data.txt"
+# Список для хранения данных от пользователей
+data_storage = []
+
+@app.route('/')
+def home():
+    return "Welcome to the Flask Server!"
 
 @app.route('/submit', methods=['POST'])
-def submit_data():
-    data = request.json
-    # Сохраняем данные в файл
-    with open(file_path, "a") as f:
-        f.write(f"Client Data: {data}\n")
-    return jsonify({"message": "Data saved successfully!"}), 200
+def submit():
+    # Получаем данные от клиента
+    user_data = request.json  # данные в формате JSON
+    data_storage.append(user_data)
+    
+    # Возвращаем подтверждение
+    return jsonify({"status": "success", "data": user_data}), 200
+
+@app.route('/get_data', methods=['GET'])
+def get_data():
+    # Отправляем сохраненные данные обратно клиенту
+    return jsonify({"data": data_storage}), 200
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=10000)
