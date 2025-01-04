@@ -1,6 +1,10 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # Импортируем CORS
 
 app = Flask(__name__)
+
+# Разрешаем CORS для всех доменов (можно ограничить список доменов)
+CORS(app)
 
 # Список для хранения данных от пользователей
 data_storage = []
