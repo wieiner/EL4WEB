@@ -219,7 +219,7 @@ function initTextures() {
   cubeImage = new Image();
   cubeImage.onload = function() { handleTextureLoaded(cubeImage, cubeTexture); }
   cubeImage.crossOrigin = "anonymous";
-  cubeImage.src = "fractrd.png";
+  cubeImage.src = "chatljggpt2.png";
 }
 
 function handleTextureLoaded(image, texture) {
@@ -258,7 +258,7 @@ function drawScene() {
   // Now move the drawing position a bit to where we want to start
   // drawing the cube.
 
-  mvTranslate([-0.0, 0.0, -3.0]);
+  mvTranslate([-0.0, 0.0, -4.0]);
 
   // Save the current matrix, then rotate before we draw.
 
