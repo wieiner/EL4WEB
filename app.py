@@ -13,7 +13,8 @@ data_storage = []
 
 # Строка подключения
 # DATABASE_URL = 'postgres://username:password@hostname:port/database_name'
-DATABASE_URL = 'postgresql://dbuser:AtoYdD3BlcCBHeSNARF70IO6lwGiza9r@dpg-ctt8t7pu0jms73bg7gr0-a/el4db'
+# DATABASE_URL = 'postgresql://dbuser:AtoYdD3BlcCBHeSNARF70IO6lwGiza9r@dpg-ctt8t7pu0jms73bg7gr0-a/el4db'
+DATABASE_URL = 'postgresql://postgres.ibbzjmcecieqqzbgfwfr:baraQ197X!@aws-0-us-west-1.pooler.supabase.com:6543/postgres'
 
 # Функция для подключения к PostgreSQL
 def get_db_connection():
