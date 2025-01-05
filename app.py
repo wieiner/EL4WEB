@@ -53,23 +53,21 @@ def get_data():
 @app.route('/get_data_pg', methods=['GET'])
 def get_data_pg():
     # Отправляем сохраненные данные обратно клиенту
- try:
-        # Подключаемся к базе данных
-        conn = get_db_connection()
-        cur = conn.cursor()
 
-        # Получаем все данные из таблицы
-        cur.execute('SELECT * FROM user_inputs')
-        rows = cur.fetchall()
+    # Подключаемся к базе данных
+    conn = get_db_connection()
+    cur = conn.cursor()
 
-        cur.close()
-        conn.close()
+    # Получаем все данные из таблицы
+    cur.execute('SELECT * FROM user_inputs')
+    rows = cur.fetchall()
 
-        # Возвращаем данные в формате JSON
-        return jsonify({"data": rows}), 200
+    cur.close()
+    conn.close()
 
-    except Exception as e:
-        return jsonify({"status": "error", "message": str(e)}), 500
+    # Возвращаем данные в формате JSON
+    return jsonify({"data": rows}), 200
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=10000)
