@@ -50,6 +50,27 @@ def get_data():
     # Отправляем сохраненные данные обратно клиенту
     return jsonify({"data": data_storage}), 200
 
+@app.route('/get_data_pg', methods=['GET'])
+def get_data_pg():
+    # Отправляем сохраненные данные обратно клиенту
+ try:
+        # Подключаемся к базе данных
+        conn = get_db_connection()
+        cur = conn.cursor()
+
+        # Получаем все данные из таблицы
+        cur.execute('SELECT * FROM user_inputs')
+        rows = cur.fetchall()
+
+        cur.close()
+        conn.close()
+
+        # Возвращаем данные в формате JSON
+        return jsonify({"data": rows}), 200
+
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=10000)
 
