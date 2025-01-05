@@ -36,7 +36,7 @@ def submit():
     cur = conn.cursor()
 
     # Вставляем данные в базу
-    cur.execute('INSERT INTO user_inputs (input) VALUES (%s)', (user_data['input'],))
+    cur.execute('INSERT INTO test_inputs (input) VALUES (%s)', (user_data['input'],))
     conn.commit()
 
     cur.close()
