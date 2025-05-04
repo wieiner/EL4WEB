@@ -219,7 +219,7 @@ function initTextures() {
   cubeImage = new Image();
   cubeImage.onload = function() { handleTextureLoaded(cubeImage, cubeTexture); }
   cubeImage.crossOrigin = "anonymous";
-  cubeImage.src = "chatljggpt2.png";
+  cubeImage.src = "cubetexture.png";
 }
 
 function handleTextureLoaded(image, texture) {
