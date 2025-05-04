@@ -19,7 +19,7 @@ var textureCoordAttribute;
 var perspectiveMatrix;
 
 //
-// start
+//  start
 //
 // Called when the canvas is created to get the ball rolling.
 //
